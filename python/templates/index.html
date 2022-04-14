@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta itemprop="name" content="DevNet Expert Documentation">
+    <meta property="og:title" content="Cisco UI Kit">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <link rel="icon" href="{{ url_for('static', filename = 'img/favicon.png') }}" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{{ app_name }}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/cui-standard.min.css') }}" type="text/css">
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
+    
+    <script>
+        function verify() {
+            if (!$('#query').val().trim()) {
+                alert('Please specify some text to search for.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body class="cui">
+    <nav class="header" id="styleguideheader" role="navigation">
+        <div class="container-fluid">
+            <div class="header-panels">
+                <div class="header-panel">
+                    <span class="icon-cisco"></span>
+                    <div class="header__title">{{ app_name }}</div>
+                    <!-- <h1 class="header__title">
+              <span>Collage</span>
+            </h1> -->
+                </div>
+                <!-- <div class="header-panel header-panel--right">
+              <a class="header-item">Link 1</a>
+              <a class="header-item">Link 2</a>
+              <a class="header-item">Link 3</a>
+          </div> -->
+            </div>
+        </div>
+    </nav>
+    <div class="content content--all">
+        <div class="container-fluid">
+            <div class="section">
+                <div class="panel panel--loose panel--raised base-margin-bottom">
+                    <h2 class="subtitle">Search</h2>
+                    <hr />
+                    <div class="section" style="margin: auto; width: 25%">
+                        <form method="POST" onSubmit="verify();" action="/search">
+                            <div class="form-group">
+                                <input type="text" name="query" id="query" class="form-control"
+                                    placeholder="Enter Query String">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" value="Search!" class="btn btn--primary">
+                                <input type="reset" name="reset" value="Clear" class="btn btn--secondary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="section">
+                        <div class="panel panel--loose panel--raised base-margin-bottom">
+                            <h2 class="subtitle">Wildcard Searches</h2>
+                            <hr/>
+                            <div class="section">
+                                <p>To perform a single-character wildcard search use the "?" symbol (e.g., "te?t")</p>
+                                <p>To perform a multiple character wildcard search use the "*" symbol (e.g., "test*")</p>
+                                <p><b>NOTE:</b> searches cannot start with wildcards</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="section">
+                        <div class="panel panel--loose panel--raised base-margin-bottom">
+                            <h2 class="subtitle">Boolean Searches</h2>
+                            <hr/>
+                            <div class="section">
+                                <p>Use <b>AND</b> to search for an intersection of multiple terms (e.g., "python AND requests" will return documents that have both "python" and "requests" in their text).</p>
+                                <p>Use <b>OR</b> to perform a union search of multiple terms (e.g., "netconf OR restconf" will return documents that have either "netconf" or "restconf" in their text).</p>
+                                <p>Use <b>NOT</b> to negate a search term (e.g., "json NOT XML" will return hits that have "json" but not "xml" in their text).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="section">
+                        <div class="panel panel--loose panel--raised base-margin-bottom">
+                            <h2 class="subtitle">Grouping Terms</h2>
+                            <hr/>
+                            <div class="section">
+                                <p>Use quotes to group search terms together into a phrase (e.g., "python requests" will return documents with the phrase "python requests").</p>
+                                <p>Use parenthesis to group logic operations (e.g., "(json OR XML) AND python" will return documents that have either "json" or "xml" as well as "python" in their text.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

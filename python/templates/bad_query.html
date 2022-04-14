@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta itemprop="name" content="DevNet Expert Documentation">
+    <meta property="og:title" content="Cisco UI Kit">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <link rel="icon" href="{{ url_for('static', filename = 'img/favicon.png') }}" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Error With Query</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/cui-standard.min.css') }}" type="text/css">
+</head>
+
+<body class="cui">
+    <nav class="header" id="styleguideheader" role="navigation">
+        <div class="container-fluid">
+            <div class="header-panels">
+                <div class="header-panel">
+                    <span class="icon-cisco"></span>
+                    <div class="header__title">Error With Query</div>
+                    <!-- <h1 class="header__title">
+              <span>Collage</span>
+            </h1> -->
+                </div>
+                <!-- <div class="header-panel header-panel--right">
+              <a class="header-item">Link 1</a>
+              <a class="header-item">Link 2</a>
+              <a class="header-item">Link 3</a>
+          </div> -->
+            </div>
+        </div>
+    </nav>
+    <div class="content content--all">
+        <div class="container-fluid">
+            <div class="alert alert--danger">
+                <div class="alert__icon icon-error-outline"></div>
+                {% if error_msg %}
+                <div class="alert__message"><pre>{{ error_msg }}</pre></div>
+                {% else %}
+                <div class="alert__message">Invalid query specified. Please specify some text to search for.</div>
+                {% endif %}
+            </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+---
+# MANDATORY
+
+# URL base where docs can be found.  The next element in this
+# path MUST be path_token defined below.
+doc_root: "https://lds-stg.ccie.cisco.com/static/docs"
+
+# Path to the Java Runtime Environment command.
+java: /opt/homebrew/Cellar/openjdk/18/bin/java
+# OPTIONAL
+
+# Name of the directory containing the document index.  This MUST be present in
+# the root directory of this project.
+#index_path: docs-index
+
+# The TCP port on which the search service listens.
+#listen_port: 8080
+
+# The name of the directory where both the local documents and the remote web-hosted
+# documents live.  Everything in the directory tree prior to this directory are ignored.
+#path_index: DEVNET

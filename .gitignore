@@ -1,0 +1,5 @@
+**/*.class
+.vscode
+venv
+docs-index
+**/__pycache__

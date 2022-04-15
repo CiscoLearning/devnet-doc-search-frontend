@@ -80,7 +80,7 @@ def search() -> Response:
 
             break
 
-        web_result = f"{config.doc_root}/{os.path.sep.join(doc_path.parts[i:])}"
+        web_result = f"{config.doc_root}/{os.path.sep.join(doc_path.parts[i+1:])}"
 
         web_results.append(web_result)
         web_result_map[web_result] = f"{' > '.join(doc_path.parts[i+1:])}"

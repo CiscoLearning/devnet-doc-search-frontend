@@ -3,7 +3,7 @@
 
 # URL base where docs can be found.  The next element in this
 # path MUST be path_token defined below.
-doc_root: "https://lds-stg.ccie.cisco.com/static/docs"
+doc_root: "https://lds-stg.ccie.cisco.com/static/docs/DEVNET"
 
 # Path to the Java Runtime Environment command.
 java: /opt/homebrew/Cellar/openjdk/18/bin/java

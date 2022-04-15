@@ -50,7 +50,7 @@ def search() -> Response:
     if not os.path.isdir(index_dir):
         logger.error(f"Bad config, invalid index directory, {index_dir}")
         return render_template(
-            "bad_search.html",
+            "bad_query.html",
             error_msg=f"Invalid index directory: {index_dir}",
             mimetype="text/html",
         )

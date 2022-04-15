@@ -26,6 +26,7 @@ CLASSPATH = ":".join([ROOT + "/jars/" + j for j in JARS])
 CLASSPATH += f":{ROOT}"
 
 app = Flask(APP_NAME)
+config = None
 
 
 @app.route("/")

@@ -46,12 +46,12 @@ import org.apache.lucene.store.FSDirectory;
 /** Simple command-line based search demo. */
 public class SearchFiles {
 
-  private SearchFiles() {}
+  private SearchFiles() {
+  }
 
   /** Simple command-line based search demo. */
   public static void main(String[] args) throws Exception {
-    String usage =
-        "Usage:\tjava org.apache.lucene.demo.SearchFiles [-index dir] [-field f] [-repeat n] [-queries file] [-query string] [-raw] [-paging hitsPerPage] [-knn_vector knnHits]\n\nSee http://lucene.apache.org/core/9_0_0/demo/ for details.";
+    String usage = "Usage:\tjava org.apache.lucene.demo.SearchFiles [-index dir] [-field f] [-repeat n] [-queries file] [-query string] [-raw] [-paging hitsPerPage] [-knn_vector knnHits]\n\nSee http://lucene.apache.org/core/9_0_0/demo/ for details.";
     if (args.length > 0 && ("-h".equals(args[0]) || "-help".equals(args[0]))) {
       System.out.println(usage);
       System.exit(0);
@@ -106,9 +106,11 @@ public class SearchFiles {
     IndexSearcher searcher = new IndexSearcher(reader);
     Analyzer analyzer = new StandardAnalyzer();
     KnnVectorDict vectorDict = null;
-    if (knnVectors > 0) {
-      vectorDict = new KnnVectorDict(reader.directory(), IndexFiles.KNN_DICT);
-    }
+    /*
+     * if (knnVectors > 0) {
+     * vectorDict = new KnnVectorDict(reader.directory(), IndexFiles.KNN_DICT);
+     * }
+     */
     BufferedReader in;
     if (queries != null) {
       in = Files.newBufferedReader(Paths.get(queries), StandardCharsets.UTF_8);
@@ -136,7 +138,7 @@ public class SearchFiles {
       if (knnVectors > 0) {
         query = addSemanticQuery(query, vectorDict, knnVectors);
       }
-      //System.out.println("Searching for: " + query.toString(field));
+      // System.out.println("Searching for: " + query.toString(field));
 
       if (repeat > 0) { // repeat & time as benchmark
         Date start = new Date();
@@ -160,11 +162,16 @@ public class SearchFiles {
   }
 
   /**
-   * This demonstrates a typical paging search scenario, where the search engine presents pages of
-   * size n to the user. The user can then go to the next page if interested in the next hits.
+   * This demonstrates a typical paging search scenario, where the search engine
+   * presents pages of
+   * size n to the user. The user can then go to the next page if interested in
+   * the next hits.
    *
-   * <p>When the query is executed for the first time, then only enough results are collected to
-   * fill 5 result pages. If the user wants to page beyond this limit, then the query is executed
+   * <p>
+   * When the query is executed for the first time, then only enough results are
+   * collected to
+   * fill 5 result pages. If the user wants to page beyond this limit, then the
+   * query is executed
    * another time and all hits are collected.
    */
   public static void doPagingSearch(
@@ -181,7 +188,7 @@ public class SearchFiles {
     ScoreDoc[] hits = results.scoreDocs;
 
     int numTotalHits = Math.toIntExact(results.totalHits.value);
-    //System.out.println(numTotalHits + " total matching documents");
+    // System.out.println(numTotalHits + " total matching documents");
 
     int start = 0;
     int end = Math.min(numTotalHits, hitsPerPage);
@@ -257,7 +264,8 @@ public class SearchFiles {
             }
           }
         }
-        if (quit) break;
+        if (quit)
+          break;
         end = Math.min(numTotalHits, start + hitsPerPage);
       }
     }
@@ -272,11 +280,10 @@ public class SearchFiles {
       semanticQueryText.append(term).append(' ');
     }
     if (semanticQueryText.length() > 0) {
-      KnnVectorQuery knnQuery =
-          new KnnVectorQuery(
-              "contents-vector",
-              new DemoEmbeddings(vectorDict).computeEmbedding(semanticQueryText.toString()),
-              k);
+      KnnVectorQuery knnQuery = new KnnVectorQuery(
+          "contents-vector",
+          new DemoEmbeddings(vectorDict).computeEmbedding(semanticQueryText.toString()),
+          k);
       BooleanQuery.Builder builder = new BooleanQuery.Builder();
       builder.add(query, BooleanClause.Occur.SHOULD);
       builder.add(knnQuery, BooleanClause.Occur.SHOULD);

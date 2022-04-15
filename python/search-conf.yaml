@@ -18,4 +18,4 @@ java: /opt/homebrew/Cellar/openjdk/18/bin/java
 
 # The name of the directory where both the local documents and the remote web-hosted
 # documents live.  Everything in the directory tree prior to this directory are ignored.
-#path_index: DEVNET
+#path_token: DEVNET

@@ -10,6 +10,8 @@ import logging.config
 import logging
 from config import Config
 
+os.chdir('/home/searchindex/devnet-doc-search-frontend/python')
+
 logging.config.fileConfig(os.path.realpath(os.path.dirname(os.path.realpath(__file__)) + "/logger.conf"))
 logger = logging.getLogger(__name__)
 

@@ -6,7 +6,7 @@
 doc_root: "https://lds-stg.ccie.cisco.com/static/docs/DEVNET"
 
 # Path to the Java Runtime Environment command.
-java: /opt/homebrew/Cellar/openjdk/18/bin/java
+java: /usr/bin/java
 # OPTIONAL
 
 # Name of the directory containing the document index.  This MUST be present in
@@ -19,3 +19,5 @@ java: /opt/homebrew/Cellar/openjdk/18/bin/java
 # The name of the directory where both the local documents and the remote web-hosted
 # documents live.  Everything in the directory tree prior to this directory are ignored.
 #path_token: DEVNET
+path_token: Devnet_DOCS
+

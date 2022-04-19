@@ -3,7 +3,7 @@
 
 # URL base where docs can be found.  The next element in this
 # path MUST be path_token defined below.
-doc_root: "https://lds-stg.ccie.cisco.com/static/docs/DEVNET"
+doc_root: "https://lds.ccie.cisco.com/static/docs/DEVNET"
 
 # Path to the Java Runtime Environment command.
 java: /usr/bin/java

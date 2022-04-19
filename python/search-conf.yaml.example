@@ -19,5 +19,4 @@ java: /usr/bin/java
 # The name of the directory where both the local documents and the remote web-hosted
 # documents live.  Everything in the directory tree prior to this directory are ignored.
 #path_token: DEVNET
-path_token: Devnet_DOCS
 

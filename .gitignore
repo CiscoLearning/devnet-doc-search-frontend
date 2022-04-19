@@ -3,3 +3,4 @@
 venv
 docs-index
 **/__pycache__
+python/search-conf.yaml

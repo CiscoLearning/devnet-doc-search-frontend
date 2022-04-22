@@ -40,6 +40,11 @@
     </nav>
     <div class="content content--all">
         <div class="container-fluid">
+            <div class="section">
+                <div class="panel panel--loose">
+                    <input type="button" class="btn btn--primary" value="&lt; Back" onClick="history.back()"/>
+                </div>
+            </div>
             <div class="alert alert--danger">
                 <div class="alert__icon icon-error-outline"></div>
                 {% if error_msg %}

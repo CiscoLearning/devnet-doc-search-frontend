@@ -7,7 +7,11 @@ doc_root: "https://lds-stg.ccie.cisco.com/static/docs/DEVNET"
 
 # Path to the Java Runtime Environment command.
 java: /usr/bin/java
+
 # OPTIONAL
+
+# Working directory from which the script will be run.
+workdir: .
 
 # Name of the directory containing the document index.  This MUST be present in
 # the root directory of this project.

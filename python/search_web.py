@@ -10,7 +10,8 @@ import logging.config
 import logging
 from config import Config
 
-os.chdir("/home/searchindex/devnet-doc-search-frontend/python")
+config = Config("search-conf.yaml")
+os.chdir(config.workdir)
 
 logging.config.fileConfig(os.path.realpath(os.path.dirname(os.path.realpath(__file__)) + "/logger.conf"))
 logger = logging.getLogger(__name__)
@@ -28,7 +29,6 @@ CLASSPATH = ":".join([ROOT + "/jars/" + j for j in JARS])
 CLASSPATH += f":{ROOT}"
 
 app = Flask(APP_NAME)
-config = Config("search-conf.yaml")
 
 
 @app.route("/")

@@ -11,6 +11,7 @@ class Config(object):
         self._index_path = config.get("index_path", "docs-index")
         self._listen_port = config.get("listen_port", 8080)
         self._path_token = config.get("path_token", "DEVNET")
+        self._workdir = config.get("workdir", ".")
 
         if not all([self._java, self._doc_root]):
             raise ValueError("ERROR: You must set both java and doc_root in your config file.")
@@ -55,3 +56,10 @@ class Config(object):
         Everything in the directory tree prior to this directory are ignored.
         """
         return self._path_token
+
+    @property
+    def workdir(self) -> str:
+        """
+        The working directory from which the script will be run.
+        """
+        return self._workdir

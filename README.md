@@ -11,7 +11,10 @@ To build the frontend search code, run the `scripts/compile-classes.sh` script.
 
 ## Running the Frontend
 
+First create a `python/search-conf.yaml` file.  Typically you can just copy the example.  You
+won't have access to the actual docs, so the docroot doesn't matter.
+
 The frontend runs as a Flask/WSGI service.  Create a Python virtual environment, `pip install -r requirements`,
-and then you can run `python/search_web.py` and then
+and then you can run `cd python && ./search_web.py` and then
 connect to <https://127.0.0.1:8080>.  Note: for the search to work, you must first
 have the index from the backend repo.
